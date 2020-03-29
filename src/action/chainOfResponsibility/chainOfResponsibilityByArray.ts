@@ -12,7 +12,7 @@ namespace chainOfResponsibilityByArray {
   }
 
   class HandlerA implements IHandler {
-    public handle(content: number): Boolean {
+    handle(content: number): Boolean {
       let handled: Boolean = false;
       if (content < 9) {
         console.log('小于9，处理器 A 处理对象');
@@ -23,7 +23,7 @@ namespace chainOfResponsibilityByArray {
     }
   }
   class HandlerB implements IHandler {
-    public handle(content: number): Boolean {
+    handle(content: number): Boolean {
       let handled: Boolean = false;
       if (content < 100 && content >= 9) {
         console.log('大于等于9，小于100，处理器 B 处理对象');
@@ -36,10 +36,10 @@ namespace chainOfResponsibilityByArray {
   // 处理器链
   class HandlerChain {
     private handlers: IHandler[] = [];
-    public addHandler(handler: IHandler) {
+    addHandler(handler: IHandler) {
       this.handlers.push(handler);
     }
-    public handle(content: number): void {
+    handle(content: number): void {
       for (let i = 0; i < this.handlers.length; i++) {
         const handled = this.handlers[i].handle(content);
         if (handled) return;
@@ -52,9 +52,9 @@ namespace chainOfResponsibilityByArray {
       const handlerChain: HandlerChain = new HandlerChain();
       handlerChain.addHandler(new HandlerA());
       handlerChain.addHandler(new HandlerB());
-      handlerChain.handle(18)
+      handlerChain.handle(18);
     }
   }
 
-  new Application()
+  new Application();
 }
