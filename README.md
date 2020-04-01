@@ -5,4 +5,5 @@
 
 - 模板模式（Template Method Design Pattern）
 - 原型链模式（Chain of Responsibility Design Pattern）：分为链表实现和数组实现
-
+- 状态模式
+- 迭代器模式
