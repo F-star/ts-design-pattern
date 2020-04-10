@@ -2,6 +2,7 @@
  * 代理模式
  */
 namespace proxy {
+  
   interface Subject {
     methodA(): void;
     methodB(): void;
@@ -17,19 +18,19 @@ namespace proxy {
   }
 
   class Proxy implements Subject {
-    private realSubject: RealSubject;
-    constructor(realSubject: RealSubject) {
-      this.realSubject = realSubject; // 依赖注入
+    private subject: RealSubject;
+    constructor(subject: RealSubject) {
+      this.subject = subject; // 依赖注入
     }
     methodA(): void {
       console.log('代理：执行方法A对应的代理操作');
       // 委托
-      this.realSubject.methodA();
+      this.subject.methodA();
     }
     methodB(): void {
       console.log('代理：执行方法A对应的代理操作');
       // 委托
-      this.realSubject.methodB();
+      this.subject.methodB();
     }
   }
 
